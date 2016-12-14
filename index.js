@@ -114,7 +114,7 @@ const pushNotifications = function(pokemons) {
             if (config.IVPokemonIds === 'all') {
                 return pokemon.IVPerfection >= config.minIVPerfection;
             } else {
-                return !_.includes(config.IVPokemonIds, pokemon.pokemonId) || pokemon.IVPerfection >= config.minIVPerfection;
+                return !_.includes(config.IVPokemonIds, pokemon.pokemonId) || pokemon.IVPerfection >= ( pokemon.pokemonName.iv || config.minIVPerfection );
             }
         });
     }
